@@ -23,7 +23,7 @@ gulp.task('scripts', function() {
     }))
     .pipe(babel())
     .pipe(uglify())
-    .pipe(gulp.dest('./build/'));
+    .pipe(gulp.dest('./build/js/'));
 });
 
 // TODO: Better JS Linter needed!
