@@ -1,0 +1,75 @@
+// -------------------------- */
+//  #Nav Toggle
+// -------------------------- */
+
+// *
+// * Nav Toggle Settings
+// */
+
+// Center line position. Top and Bottom lines are based of this value.
+$nav-toggle-center: 50%;
+$nav-toggle-size: 30px;
+$nav-toggle-height: 2px;
+
+
+.c-nav__toggle {
+  height: 20px;
+  position: fixed;
+  right: 35px;
+  top: 35px;
+  width: $nav-toggle-size;
+  z-index: 3;
+
+  &::before,
+  span,
+  &::after {
+    background: $color-white;
+    border-radius: 15px;
+    content: '';
+    display: block;
+    height: $nav-toggle-height;
+    position: absolute;
+    text-indent: -9999px;
+    transition: .2s ease;
+    width: 100%;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  span {
+    top: $nav-toggle-center;
+  }
+
+  &::after {
+    top: 100%;
+  }
+
+  &.is-active {
+    span, &:before, &:after {
+      background: $color-white;
+    }
+
+    &::before {
+      top: $nav-toggle-center;
+      transform: rotate(45deg);
+    }
+
+    span {
+      opacity: 0;
+      text-indent: -9999px;
+      top: 24px;
+    }
+
+    &::after {
+      top: $nav-toggle-center;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+// -------------------------- */
+//  #Navigation
+// -------------------------- */

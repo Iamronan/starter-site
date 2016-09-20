@@ -1,0 +1,47 @@
+/**
+ * Adjustments.
+ *
+ * ‘Can you just make that text a little bigger?’
+ *
+ * Sure! Use these utilities to adjust the size of a span of text by a little
+ * bit more, or a little bit less, e.g.:
+ *
+     <p class="u-text++">A little bit bigger.</p>
+ *
+ */
+.u-text\+\+ { font-size: larger  !important; }
+.u-text--   { font-size: smaller !important; }
+
+
+/**
+ * Weight
+ */
+.u-text-bold { font-weight: 500; }
+.u-text-bolder { font-weight: 700; }
+
+/**
+ * Alignments.
+ */
+.u-text-right   { text-align:    right !important; }
+.u-text-left    { text-align: left     !important; }
+.u-text-center  { text-align:  center  !important; }
+.u-text-justify { text-align: justify  !important; }
+
+
+
+
+/**
+ * Truncation.
+ *
+ * Cause long spans of text to truncate after running out of horizontal space.
+ */
+.u-text-truncate { @include truncate(100%, important); }
+
+
+
+/**
+ * Colour
+ *
+ * Colour over-rides
+ */
+.u-text-blue { color: $color-light-blue !important; }

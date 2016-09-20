@@ -1,0 +1,117 @@
+// * --------------- *
+// Font Size, Clearfix and Truncate Mixins borrowed from Harry Roberts ( csswizardry.com )
+// * --------------- *
+
+
+@mixin clearfix($important: false) {
+
+    @if ($important == "important") {
+        $important: unquote("!important");
+    } @else {
+        $important: null;
+    }
+
+    &:after {
+        content: "" $important;
+        display: table $important;
+        clear: both $important;
+    }
+
+}
+
+
+
+@mixin truncate($limit: 100%, $important: false) {
+
+    @if ($important == "important") {
+        $important: unquote("!important");
+    } @else {
+        $important: null;
+    }
+
+    max-width: $limit $important;
+    white-space: nowrap $important;
+    overflow: hidden $important;
+    text-overflow: ellipsis $important;
+}
+
+
+
+
+@function rem-calc($size) {
+  // $remSize: $size / 16px;
+  @return ($size / 16px) + rem;
+}
+
+
+
+@mixin font-size($size, $line-height: "auto", $important: "false") {
+
+  @if ($important == "important") {
+    $important: unquote("!important");
+  } @else {
+    $important: null;
+  }
+
+  font-size: $size/2 $important; // fallback in px
+  font-size: rem-calc($size)/2 $important;
+
+  @include breakpoint(medium) {
+    font-size: $size / 1.5 $important;
+    font-size: rem-calc($size) / 1.5 $important;
+  }
+
+  @include breakpoint(large) {
+    font-size: $size $important;
+    font-size: rem-calc($size) $important;
+  }
+
+  @if $line-height == "auto" {
+    // line-height: ceil($font-size / $base-line-height) * ($base-line-height * $font-size) $important;
+  }
+
+  @else {
+
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height $important;
+        }
+
+        @elseif ($line-height != none and $line-height != false) {
+            @warn "‘#{$line-height}’ is not a valid value for `line-height`.";
+        }
+
+    }
+}
+
+
+
+@mixin svg($height, $width, $color: false) {
+    fill: $color;
+    height: $height;
+    width: $width;
+}
+
+
+@mixin breakpoint($bp) {
+  $breakpoint: nth($bp, 1);
+  $only: if(length($bp) > 1, nth($bp, 2), false);
+
+  @if map-has-key($breakpoints, $breakpoint) {
+    @if($only == 'only') {
+      @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+
+    @else {
+      @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    @warn "You cannae just make breakpoints up! (`#{$breakpoint}`). "
+        + "Make sure your breakpoints are defined in the `$breakpoints` map within _settings.global.scss";
+  }
+}

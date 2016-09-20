@@ -1,0 +1,11 @@
+*~
+.DS_Store
+.svn
+.cvs
+*.bak
+*.log
+*.swp
+*.sql
+Thumbs.db
+
+node_modules

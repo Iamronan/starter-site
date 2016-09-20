@@ -1,0 +1,17 @@
+/**
+* Hide content from all include screen readers
+*/
+.u-hide {
+  display: none !important;
+}
+
+/**
+* Hide content from view but still accessible for screen readers
+*/
+.u-show-sr-only {
+    position: absolute !important;
+    width:  1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+}

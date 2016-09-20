@@ -1,0 +1,74 @@
+// -------------------------- */
+//  #Buttons
+// -------------------------- */
+
+// Button Settings
+$btn-color-bg: $color-dark-grey;
+$btn-color-bg-hover: darken($color-dark-grey, 15%);
+$btn-color: $color-white;
+$btn-margin: 5px;
+$btn-padding: 10px;
+
+
+.c-btn {
+  all: initial;
+  background-color: $btn-color-bg;
+  border-radius: 4px;
+  border: none;
+  color: $btn-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: rem-calc(16);
+  font-weight: 300;
+  margin: $btn-margin;
+  padding: $btn-padding;
+  text-align: center;
+  transition: background .3s ease, opacity .4s ease;
+  text-decoration: none;
+  vertical-align: center;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $btn-color-bg-hover;
+    text-decoration: none;
+  }
+
+  &[disabled],
+  &.is-disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+
+.c-btn--small {
+  padding: round(.5 * $btn-padding);
+}
+
+.c-btn--large {
+  padding: round(1.6 * $btn-padding);
+}
+
+.c-btn--full {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+
+[disabled] {
+  pointer-events: none;
+  opacity: .7;
+}
+
+
+.c-btn--white {
+  background: $color-white;
+  color: $color-dark-grey;
+  
+  &:hover {
+    background: darken($color-white, 10%);
+  }
+}

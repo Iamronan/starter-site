@@ -1,0 +1,29 @@
+// -------------------------- */
+//  #Global Settings
+// -------------------------- */
+
+
+// @lost flexbox no-flex;
+
+
+$base-font-size:        16px !default;
+$base-line-height:      24px !default;
+$base-text-color:       #333 !default;
+$base-background-color: #fff !default;
+
+$base-font-family: sans-serif;
+
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-off-black: #232323;
+$color-grey: #363636;
+$color-light-grey: #B6BBC0;
+$color-dark-grey: #272727;
+
+$breakpoints: (
+  small: 480px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
